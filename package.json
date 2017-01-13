@@ -5,4 +5,4 @@
       "scripts": {
 					"start":"electron .",
 					"win32pack":"electron-packager . --platform=win32 --overwrite"} 
-//}
+}
