@@ -1,8 +1,7 @@
 
 
-    const {app, BrowserWindow} = require('electron');
+    const {app, BrowserWindow,globalShortcut} = require('electron');
     
-//	const globalShortcut = require('electron').global-shortcut;
     let win
 
     function createWindow () {
@@ -23,7 +22,7 @@
         win = null
       });
       
-//   setGlobalShortcuts(); 
+     setGlobalShortcuts(); 
     }
 
     app.on('ready', createWindow);
@@ -89,9 +88,10 @@ function setGlobalShortcuts() {
 //  var shortcutKeysSetting = configuration.readSettings('shortcutKeys');
 //  var shortcutPrefix = shortcutKeysSetting.length === 0 ? '' : shortcutKeysSetting.join('+') + '+';
 //
-//  globalShortcut.register('ctrl+shift+1', function () {
-//      win.webContents.send('global-shortcut', 0);
-//  });
+    globalShortcut.register('ctrl+shift+1', function () {
+    	alert('a');
+        win.webContents.send('global-shortcut', 0);
+    });
 //  globalShortcut.register('ctrl+shift+2', function () {
 //      win.webContents.send('global-shortcut', 1);
 //  });
