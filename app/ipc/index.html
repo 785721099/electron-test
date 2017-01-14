@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>我是音乐播放器</title>
+  </head>
+  <body>
+    <h1>列表</h1>
+        
+
+    <!--We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.-->
+    <!--<button onclick="sayhello()">dianwo</button>-->
+  </body>
+  <!--<script>
+  const {ipcRenderer} = require('electron')
+window.onload=function(){
+   
+//监听mian process里发出的message
+ipcRenderer.on('asynchronous-reply', (event, arg) => {
+     alert("web2" + arg);
+    // prints "pong"  在electron中web page里的console方法不起作用，因此使用alert作为测试方法
+  })
+
+}
+
+ 
+
+function sayhello(){
+ //在web page里向main process发出message
+  ipcRenderer.send('synchronous-message', 'ping') // prints "pong"   
+  // ipcRenderer.sendSync('synchronous-message', 'ping') // prints "pong"   
+ //  alert("web1" + 'ping');
+  }
+  </script>-->
+</html>
