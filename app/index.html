@@ -140,10 +140,12 @@ closeEl.addEventListener('click', function () {
     ipcRenderer.send('close-main-window');
 });
 
-ipcRenderer.on('global-shortcut', function (arg) {
-    var event = new MouseEvent('click');
-    soundButtons[arg].dispatchEvent(event);
+ipcRenderer.on('global-shortcut', (event, arg) => {
+		var event = new MouseEvent('click');
+  		soundButtons[arg].dispatchEvent(event);
 });
+
+
 
 </script>
 </body>

@@ -1,7 +1,7 @@
 
 
     const {app, BrowserWindow,globalShortcut} = require('electron');
-    
+    const configuration=require('./configuration');
     let win
 
     function createWindow () {
@@ -81,16 +81,15 @@ ipcMain.on('close-main-window', (event, arg) => {
 
 
 
-
 function setGlobalShortcuts() {
+
 //  globalShortcut.unregisterAll();
 //
 //  var shortcutKeysSetting = configuration.readSettings('shortcutKeys');
 //  var shortcutPrefix = shortcutKeysSetting.length === 0 ? '' : shortcutKeysSetting.join('+') + '+';
 //
     globalShortcut.register('ctrl+shift+1', function () {
-    	alert('a');
-        win.webContents.send('global-shortcut', 0);
+     win.webContents.send('global-shortcut', 0);
     });
 //  globalShortcut.register('ctrl+shift+2', function () {
 //      win.webContents.send('global-shortcut', 1);

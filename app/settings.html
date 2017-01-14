@@ -49,7 +49,7 @@ closeEl.addEventListener('click', function (e) {
 	
 	for (var i = 0; i < modifierCheckboxes.length; i++) {
 		alert('a');
-//  var shortcutKeys = configuration.readSettings('shortcutKeys');
+    var shortcutKeys = configuration.readSettings('shortcutKeys');
     var modifierKey = modifierCheckboxes[i].attributes['data-modifier-key'].value;
     modifierCheckboxes[i].checked = shortcutKeys.indexOf(modifierKey) !== -1;
 
