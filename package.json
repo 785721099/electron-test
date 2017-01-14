@@ -4,5 +4,7 @@
       "main" : "./main.js",
       "scripts": {
 					"start":"electron .",
-					"win32pack":"electron-packager . --platform=win32 --overwrite"} 
+					"packager": "electron-packager ./ 声效器 --platform=win32 --out out/ --version 1.4.13 --overwrite --icon=./app/img/app-icon.ico"
+
+ } 
 }
