@@ -1,7 +1,8 @@
 
 
     const {app, BrowserWindow} = require('electron');
-
+    
+//	const globalShortcut = require('electron').global-shortcut;
     let win
 
     function createWindow () {
@@ -16,22 +17,25 @@
 
 //    win.webContents.openDevTools();
 
-
-      // 处理窗口关闭
+		
+		
       win.on('closed', () => {
         win = null
       });
+      
+//   setGlobalShortcuts(); 
     }
 
-    // Electron初始化完成
     app.on('ready', createWindow);
 
-    // 处理退出
     app.on('window-all-closed', () => {
       if (process.platform !== 'darwin') {
         app.quit();
       }
     })
+    
+
+
 
     app.on('activate', () => {
       if (win === null) {
@@ -40,77 +44,61 @@
     })
 
 
-//'use strict';
-//
-//var app = require('app');
-//var BrowserWindow = require('browser-window');
-//var globalShortcut = require('global-shortcut');
-//var configuration = require('./configuration');
-//var ipc = require('ipc');
-//
-//var mainWindow = null;
-//var settingsWindow = null;
-//
-//app.on('ready', function() {
-//  if (!configuration.readSettings('shortcutKeys')) {
-//      configuration.saveSettings('shortcutKeys', ['ctrl', 'shift']);
-//  }
-//
-//  mainWindow = new BrowserWindow({
-//      frame: false,
-//      height: 700,
-//      resizable: false,
-//      width: 368
-//  });
-//
-//  mainWindow.loadUrl('file://' + __dirname + '/app/index.html');
-//
-//  setGlobalShortcuts();
-//});
-//
-//function setGlobalShortcuts() {
+   
+const {ipcMain} = require('electron');
+ let settingsWindow
+
+
+ipcMain.on('open-settings-window', (event, arg) => {
+	
+	   	 if (settingsWindow!=null) {
+	        return;
+	    }
+	   	 settingsWindow = new BrowserWindow({  
+      	frame: false,
+        height: 200,
+        resizable: false,
+        width: 368});
+
+      settingsWindow.loadURL(`file://${__dirname}/app/settings.html`);
+	   	settingsWindow.on('closed', () => {
+        settingsWindow = null
+      });
+})
+
+ipcMain.on('close-settings-window', (event, arg) => {
+    if (settingsWindow) {
+        settingsWindow.close();
+    }
+});
+
+ipcMain.on('set-global-shortcuts', (event, arg) => {
+    setGlobalShortcuts();
+});
+
+ipcMain.on('close-main-window', (event, arg) => {
+    app.quit();
+});
+
+
+
+
+function setGlobalShortcuts() {
 //  globalShortcut.unregisterAll();
 //
 //  var shortcutKeysSetting = configuration.readSettings('shortcutKeys');
 //  var shortcutPrefix = shortcutKeysSetting.length === 0 ? '' : shortcutKeysSetting.join('+') + '+';
 //
-//  globalShortcut.register(shortcutPrefix + '1', function () {
-//      mainWindow.webContents.send('global-shortcut', 0);
+//  globalShortcut.register('ctrl+shift+1', function () {
+//      win.webContents.send('global-shortcut', 0);
 //  });
-//  globalShortcut.register(shortcutPrefix + '2', function () {
-//      mainWindow.webContents.send('global-shortcut', 1);
+//  globalShortcut.register('ctrl+shift+2', function () {
+//      win.webContents.send('global-shortcut', 1);
 //  });
-//}
-//
-//ipc.on('close-main-window', function () {
-//  app.quit();
-//});
-//
-//ipc.on('open-settings-window', function () {
-//  if (settingsWindow) {
-//      return;
-//  }
-//
-//  settingsWindow = new BrowserWindow({
-//      frame: false,
-//      height: 200,
-//      resizable: false,
-//      width: 200
-//  });
-//
-//  settingsWindow.loadUrl('file://' + __dirname + '/app/settings.html');
-//
-//  settingsWindow.on('closed', function () {
-//      settingsWindow = null;
-//  });
-//});
-//
-//ipc.on('close-settings-window', function () {
-//  if (settingsWindow) {
-//      settingsWindow.close();
-//  }
-//});
-//
-//ipc.on('set-global-shortcuts', function () {
-//  setGlobalShortcuts();
-//});
+}
+
+
+
+
+
+

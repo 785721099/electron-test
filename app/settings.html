@@ -11,7 +11,7 @@
 <div id="settings-screen" class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
-            <h2>Settings</h2>
+            <h2>设置</h2>
 
             <p>Modifier keys for global shortcuts</p>
             <p>
@@ -35,6 +35,45 @@
     </div>
 </div>
 
-<script src="js/settings.js"></script>
+<script type="application/javascript" charset="utf-8">
+const {ipcRenderer} = require('electron');
+	var closeEl = document.querySelector('.close');
+
+closeEl.addEventListener('click', function (e) {
+    ipcRenderer.send('close-settings-window');
+});
+	
+	var configuration = require('../configuration');
+
+		var modifierCheckboxes = document.querySelectorAll('.global-shortcut');
+	
+	for (var i = 0; i < modifierCheckboxes.length; i++) {
+		alert('a');
+//  var shortcutKeys = configuration.readSettings('shortcutKeys');
+    var modifierKey = modifierCheckboxes[i].attributes['data-modifier-key'].value;
+    modifierCheckboxes[i].checked = shortcutKeys.indexOf(modifierKey) !== -1;
+
+    modifierCheckboxes[i].addEventListener('click', function (e) {
+    	alert('a');
+        bindModifierCheckboxes(e);
+    });
+}
+
+function bindModifierCheckboxes(e) {
+    var shortcutKeys = configuration.readSettings('shortcutKeys');
+    var modifierKey = e.target.attributes['data-modifier-key'].value;
+
+    if (shortcutKeys.indexOf(modifierKey) !== -1) {
+        var shortcutKeyIndex = shortcutKeys.indexOf(modifierKey);
+        shortcutKeys.splice(shortcutKeyIndex, 1);
+    }
+    else {
+        shortcutKeys.push(modifierKey);
+    }
+
+    configuration.saveSettings('shortcutKeys', shortcutKeys);
+    ipcRenderer.send('set-global-shortcuts');
+}
+</script>
 </body>
 </html>

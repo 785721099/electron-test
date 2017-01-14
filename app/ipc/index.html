@@ -30,7 +30,6 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 function sayhello(){
  //在web page里向main process发出message
   ipcRenderer.send('synchronous-message', 'ping') // prints "pong"   
-  // ipcRenderer.sendSync('synchronous-message', 'ping') // prints "pong"   
  //  alert("web1" + 'ping');
   }
   </script>-->

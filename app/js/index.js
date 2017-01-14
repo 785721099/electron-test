@@ -30,18 +30,12 @@ function prepareButton(buttonEl, soundName) {
     });
 }
 
-closeEl.addEventListener('click', function () {
-    ipc.send('close-main-window');
-});
+
 
 settingsEl.addEventListener('click', function () {
     ipc.send('open-settings-window');
 });
 
-ipc.on('global-shortcut', function (arg) {
-    var event = new MouseEvent('click');
-    soundButtons[arg].dispatchEvent(event);
-});
 
 if (process.platform === 'darwin') {
     trayIcon = new Tray(path.join(__dirname, 'img/tray-iconTemplate.png'));
