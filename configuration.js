@@ -1,5 +1,4 @@
 'use strict';
-//var nconf = require('nconf')
 
 var nconf = require('nconf').file({file: getUserHome() + '/sound-machine-config.json'});
 
