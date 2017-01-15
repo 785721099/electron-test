@@ -9,10 +9,11 @@ function saveSettings(settingKey, settingValue) {
 
 function readSettings(settingKey) {
     nconf.load();
+    console.log(nconf); 
     return nconf.get(settingKey);
 }
 function getUserHome() {
-	 console.log(process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME']); 
+	 
     return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 }
 
