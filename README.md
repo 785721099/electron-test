@@ -6,3 +6,8 @@ npm install --save-dev nconf
 
 打包源代码
 asar pack 路径 app.asar
+
+
+安装打包工具
+
+npm install  -g asar
