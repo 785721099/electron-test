@@ -11,3 +11,8 @@ asar pack 路径 app.asar
 安装打包工具
 
 npm install  -g asar
+
+
+
+//  "packager": "electron-packager ./ 声效器 --platform=win32 --out out/ --version 1.4.13 --overwrite --icon=./app/img/app-icon.ico"
+//  "packager": "electron-packager ./ 声效器 --all --out ./OutApp --version 1.4.13 --overwrite --icon=./app/img/app-icon.ico"
