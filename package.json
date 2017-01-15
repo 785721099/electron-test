@@ -9,5 +9,9 @@
   "devDependencies": {
     "electron-rebuild": "^1.5.6",
     "nconf": "^0.8.4"
+  },
+  "dependencies": {
+  "electron-rebuild": "^1.5.6",
+    "nconf": "^0.8.4"
   }
 }
