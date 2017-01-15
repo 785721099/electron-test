@@ -1,10 +1,13 @@
-{ 
-      "name" : "electron-quick-start", 
-      "version" : "1.0.0", 
-      "main" : "./main.js",
-      "scripts": {
-					"start":"electron .",
-					"packager": "electron-packager ./ 声效器 --platform=win32 --out out/ --version 1.4.13 --overwrite --icon=./app/img/app-icon.ico"
-
- } 
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "main": "./main.js",
+  "scripts": {
+    "start": "electron .",
+    "packager": "electron-packager ./ 声效器 --platform=win32 --out out/ --version 1.4.13 --overwrite --icon=./app/img/app-icon.ico"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.5.6",
+    "nconf": "^0.8.4"
+  }
 }

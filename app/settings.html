@@ -43,18 +43,16 @@ closeEl.addEventListener('click', function (e) {
     ipcRenderer.send('close-settings-window');
 });
 	
-	var configuration = require('../configuration');
+   var configuration = require('./configuration');
 
 		var modifierCheckboxes = document.querySelectorAll('.global-shortcut');
 	
 	for (var i = 0; i < modifierCheckboxes.length; i++) {
-		alert('a');
     var shortcutKeys = configuration.readSettings('shortcutKeys');
     var modifierKey = modifierCheckboxes[i].attributes['data-modifier-key'].value;
     modifierCheckboxes[i].checked = shortcutKeys.indexOf(modifierKey) !== -1;
 
     modifierCheckboxes[i].addEventListener('click', function (e) {
-    	alert('a');
         bindModifierCheckboxes(e);
     });
 }

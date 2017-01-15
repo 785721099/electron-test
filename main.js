@@ -1,7 +1,7 @@
 
 
     const {app, BrowserWindow,globalShortcut} = require('electron');
-    const configuration=require('./configuration');
+    var  configuration=require('./configuration');
     let win
 
     function createWindow () {
@@ -81,23 +81,38 @@ ipcMain.on('close-main-window', (event, arg) => {
 
 
 
-function setGlobalShortcuts() {
 
-//  globalShortcut.unregisterAll();
-//
+//function setGlobalShortcuts() {
+
+//globalShortcut.unregisterAll();
 //  var shortcutKeysSetting = configuration.readSettings('shortcutKeys');
 //  var shortcutPrefix = shortcutKeysSetting.length === 0 ? '' : shortcutKeysSetting.join('+') + '+';
-//
-    globalShortcut.register('ctrl+shift+1', function () {
-     win.webContents.send('global-shortcut', 0);
-    });
+
+//  globalShortcut.register('ctrl+shift+1', function () {
+//  	 console.log(configuration); 
+//  	 configuration.readSettings("123412334");
+//   win.webContents.send('global-shortcut', 0);
+//  });
 //  globalShortcut.register('ctrl+shift+2', function () {
 //      win.webContents.send('global-shortcut', 1);
 //  });
+//}
+
+
+
+
+
+function setGlobalShortcuts() {
+globalShortcut.unregisterAll();
+
+    var shortcutKeysSetting = configuration.readSettings('shortcutKeys');
+     console.log(shortcutKeysSetting); 
+//  var shortcutPrefix = shortcutKeysSetting.length === 0 ? '' : shortcutKeysSetting.join('+') + '+';
+//
+//  globalShortcut.register(shortcutPrefix + '1', function () {
+//      mainWindow.webContents.send('global-shortcut', 0);
+//  });
+//  globalShortcut.register(shortcutPrefix + '2', function () {
+//      mainWindow.webContents.send('global-shortcut', 1);
+//  });
 }
-
-
-
-
-
-
