@@ -2,6 +2,8 @@
 //var nconf = require('nconf')
 
 var nconf = require('nconf').file({file: getUserHome() + '/sound-machine-config.json'});
+
+
 function saveSettings(settingKey, settingValue) {
     nconf.set(settingKey, settingValue);
     nconf.save();
@@ -9,7 +11,6 @@ function saveSettings(settingKey, settingValue) {
 
 function readSettings(settingKey) {
     nconf.load();
-    console.log(nconf); 
     return nconf.get(settingKey);
 }
 function getUserHome() {

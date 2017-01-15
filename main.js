@@ -2,6 +2,9 @@
 
     const {app, BrowserWindow,globalShortcut} = require('electron');
     var  configuration=require('./configuration');
+    
+   
+    
     let win
 
     function createWindow () {
@@ -103,16 +106,21 @@ ipcMain.on('close-main-window', (event, arg) => {
 
 
 function setGlobalShortcuts() {
-globalShortcut.unregisterAll();
-
-    var shortcutKeysSetting = configuration.readSettings('shortcutKeys');
-     console.log(shortcutKeysSetting); 
-//  var shortcutPrefix = shortcutKeysSetting.length === 0 ? '' : shortcutKeysSetting.join('+') + '+';
-//
-//  globalShortcut.register(shortcutPrefix + '1', function () {
-//      mainWindow.webContents.send('global-shortcut', 0);
-//  });
-//  globalShortcut.register(shortcutPrefix + '2', function () {
-//      mainWindow.webContents.send('global-shortcut', 1);
-//  });
+	globalShortcut.unregisterAll();
+	
+	 if(configuration.readSettings('shortcutKeys')==null){
+		configuration.saveSettings("shortcutKeys",[]);
+	}
+  	var shortcutKeysSetting = configuration.readSettings('shortcutKeys');
+  	var flag=shortcutKeysSetting instanceof Array;
+	 console.log(shortcutKeysSetting); 
+		
+    var  shortcutPrefix= shortcutKeysSetting.length === 0 ? '' : shortcutKeysSetting.join('+') + '+';
+	console.log(shortcutPrefix); 
+    globalShortcut.register(shortcutPrefix + '1', function () {
+        win.webContents.send('global-shortcut', 0);
+    });
+    globalShortcut.register(shortcutPrefix + '2', function () {
+        win.webContents.send('global-shortcut', 1);
+    });
 }
