@@ -13,7 +13,9 @@
       	frame: false,
         height: 700,
         resizable: false,
-        width: 368});
+        width: 368,
+      	title:"声效器"
+      });
 
       win.loadURL(`file://${__dirname}/app/index.html`);
 
@@ -60,12 +62,16 @@ ipcMain.on('open-settings-window', (event, arg) => {
       	frame: false,
         height: 200,
         resizable: false,
-        width: 368});
+        width: 368,
+	   	show: false});
 
       settingsWindow.loadURL(`file://${__dirname}/app/settings.html`);
+       settingsWindow.show()
+       
 	   	settingsWindow.on('closed', () => {
         settingsWindow = null
-      });
+      })
+     
 })
 
 ipcMain.on('close-settings-window', (event, arg) => {
