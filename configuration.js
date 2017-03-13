@@ -19,6 +19,6 @@ function getUserHome() {
 
 
 module.exports = {
-    saveSettings: saveSettings,
-    readSettings: readSettings,
+     saveSettings,
+     readSettings
 };
