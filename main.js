@@ -3,7 +3,7 @@
     const {app, BrowserWindow,globalShortcut} = require('electron');
     var  configuration=require('./configuration');
     
-   
+  
     
     let win
 

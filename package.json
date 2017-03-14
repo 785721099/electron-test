@@ -4,7 +4,7 @@
   "main": "./main.js",
   "scripts": {
     "start": "electron .",
-    "packager": "electron-packager ./ 声效器 --platform=win32  --out out/ --version 1.4.15 --overwrite --icon=./app/img/app-icon.ico"
+    "packager": "electron-packager ./ 声效器 --platform=win32  --out out/ --version 1.6.3 --overwrite --icon=./app/img/app-icon.ico"
   },
   "devDependencies": {
     "electron-packager": "^8.5.2",
@@ -12,7 +12,6 @@
     "nconf": "^0.8.4"
   },
   "dependencies": {
-    "electron-rebuild": "^1.5.6",
     "nconf": "^0.8.4"
   }
 }
