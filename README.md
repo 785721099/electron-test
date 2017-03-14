@@ -19,3 +19,10 @@ npm install  -g asar
 
 安装打包工具
 npm install --save-dev electron-packager
+
+将npm升级为最新
+npm install npm@latest -g
+修改镜像源
+npm config set registry https://registry.npm.taobao.org
+查看镜像源
+npm config get registry
