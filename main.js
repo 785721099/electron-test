@@ -1,7 +1,7 @@
+'use strict';
 
-
-    const {app, BrowserWindow,globalShortcut} = require('electron');
-    var  configuration=require('./configuration');
+    const {app, BrowserWindow,globalShortcut,ipcMain} = require('electron');
+    let  configuration=require('./configuration');
     
   
     
@@ -14,16 +14,16 @@
         height: 700,
         resizable: false,
         width: 368,
-      	title:"声效器",
+        title:"声效器",
       	show:false
       });
 
       win.loadURL(`file://${__dirname}/app/index.html`);
 
-//    win.webContents.openDevTools();
+//    	win.webContents.openDevTools();
 		win.webContents.on('did-finish-load',()=>{
        	 win.show()
-       	
+         	
        })
 		
 		
@@ -53,10 +53,7 @@
 
 
    
-const {ipcMain} = require('electron');
- let settingsWindow
-
-
+ let settingsWindow 
 ipcMain.on('open-settings-window', (event, arg) => {
 	
 	   	 if (settingsWindow!=null) {
