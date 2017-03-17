@@ -2,8 +2,8 @@
 
     const {app, BrowserWindow,globalShortcut,ipcMain} = require('electron');
     let  configuration=require('./configuration');
-    
-  
+
+ 
     
     let win
 
@@ -67,7 +67,6 @@ ipcMain.on('open-settings-window', (event, arg) => {
 	   	show: false});
 
       settingsWindow.loadURL(`file://${__dirname}/app/settings.html`);
-      
       
        settingsWindow.webContents.on('did-finish-load',()=>{
        	 settingsWindow.show()

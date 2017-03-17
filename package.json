@@ -1,24 +1,22 @@
 {
   "name": "electron-quick-start",
   "version": "1.0.0",
+  "description": "这是一个electron程序",
+  "author": "sunyaodong1997@gmail.com",
   "main": "./main.js",
   "scripts": {
     "start": "electron .",
     "packager": "electron-packager ./ 声效器 --platform=win32  --out out/ --overwrite --icon=./app/img/app-icon.ico",
- 		"pack" :"build --dir",
-  	"dist" :"build" 
+    "pack": "build --dir",
+    "dist": "build --win --ia32"
   },
-  "build": {
-  "appId": "your.id",
-  "mac": {
-    "category": "your.app.category.type"
-  }
-},
+  "build": {},
   "devDependencies": {
     "electron": "^1.6.3",
     "electron-builder": "^15.4.3",
     "electron-packager": "^8.5.2",
     "electron-rebuild": "^1.5.6",
+    "electron-updater": "^1.10.1",
     "nconf": "^0.8.4"
   },
   "dependencies": {
