@@ -92,7 +92,6 @@ ipcMain.on('close-main-window', (event, arg) => {
     app.quit();
 });
 
-
 function setGlobalShortcuts() {
 	globalShortcut.unregisterAll();
 
