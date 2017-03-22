@@ -70,7 +70,7 @@
                 <span class="button-icon"></span>
             </div>
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-3"> 
             <div class="button-sound" data-sound="money">
                 <span class="button-icon"></span>
             </div>
@@ -96,11 +96,11 @@
             <div class="button-sound" data-sound="money">
                 <span class="button-icon"></span>
             </div>
-        </div> 
+        </div>
         <div class="col-xs-3">
             <div class="button-sound" data-sound="ba-dum-tsss">
                 <span class="button-icon"></span>
-            </div> 
+            </div>
         </div>
         <div class="col-xs-3">
             <div class="button-sound" data-sound="money">
@@ -110,7 +110,7 @@
     </div>
 </div>
 <script type="application/javascript" charset="utf-8">
-		const {ipcRenderer} = require('electron');		
+		const {ipcRenderer} = require('electron');
 		var soundButtons = document.querySelectorAll('.button-sound');
 		var settingsEl = document.querySelector('.settings');
 		var closeEl = document.querySelector('.close');
@@ -119,8 +119,8 @@
 	    			var soundName = soundButton.attributes['data-sound'].value;
 	 			   prepareButton(soundButton, soundName);
 			}
-			
-			
+
+
 	function prepareButton(buttonEl, soundName) {
 	    buttonEl.querySelector('span').style.backgroundImage = 'url("img/icons/' + soundName + '.png")';
 	    var audio = new Audio(__dirname + '/wav/' + soundName + '.wav');
@@ -132,7 +132,7 @@
 
 settingsEl.addEventListener('click', function () {
   ipcRenderer.send('open-settings-window');
-    
+
 });
 
 
@@ -144,8 +144,6 @@ ipcRenderer.on('global-shortcut', (event, arg) => {
 		var event = new MouseEvent('click');
   		soundButtons[arg].dispatchEvent(event);
 });
-
-
 
 </script>
 </body>
