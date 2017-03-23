@@ -69,7 +69,7 @@ ipcMain.on('open-settings-window', (event, arg) => {
       settingsWindow.loadURL(`file://${__dirname}/app/settings.html`);
 
        settingsWindow.webContents.on('did-finish-load',()=>{
-       	 settingsWindow.show()
+       	 settingsWindow.show();
 
        })
 	   	settingsWindow.on('closed', () => {
