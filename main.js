@@ -21,7 +21,7 @@
       win.loadURL(`file://${__dirname}/app/index.html`);
 
 //    	win.webContents.openDevTools();
-		win.webContents.on('did-finish-load',()=>{
+		  win.webContents.on('did-finish-load',()=>{
        	 win.show()
 
        })

@@ -8,5 +8,7 @@
         "**/.DS_Store": true
     },
     "extensions.autoUpdate": true,
-    "files.encoding": "utf8"
+    "files.encoding": "utf8",
+    "editor.fontSize": 16
+    
 }
