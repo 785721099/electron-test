@@ -4,7 +4,6 @@
     let  configuration=require('./configuration');
 
 
-
     let win
 
     function createWindow () {
