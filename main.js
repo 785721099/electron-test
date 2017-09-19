@@ -13,7 +13,7 @@
         height: 700,
         resizable: false,
         width: 368,
-        title:"声效器",
+        title:"声效器1",
       	show:false
       });
 
