@@ -2,7 +2,7 @@
 
     const {app, BrowserWindow,globalShortcut,ipcMain} = require('electron');
     let  configuration=require('./configuration');
-
+//aaa
 
     let win
 
